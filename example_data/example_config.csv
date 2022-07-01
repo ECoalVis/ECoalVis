@@ -1,0 +1,4 @@
+index,chn,action_value,min,max,unit_name,stage,type,order,component_name,unit_id,component_id,x,y,is_key,
+0,Fly Ash Carbon Content,0,0,6,Cinder,Burning,Other,17,Cinder,8,4,,,0,152
+1,Timestamp,2,1510704140,1577821440,Overall Status Group,All,Other,19,Overall Status Group,18,10,,,0,202
+2,Efficiency,2,88.50243586,92.25647847,Overall Status Group,All,Other,0,Overall Status Group,18,10,,,1,203
