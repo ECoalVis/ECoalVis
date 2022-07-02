@@ -6,6 +6,134 @@ We will upload code on Github after patent application.
 
 [TOC]
 
+## 0 User Guidance
+
+### 0.1 Code Directory
+
+* **ECoalVisBackend:** the Flask-based backend code. 
+  * **tmp_data:** including the example data and preprocessing code. 
+* **ECoalVisFrontend:** the Redux-based frontend code. 
+
+### 0.2 How to Start
+
+To start ECoalVis, you need to follow these steps: 
+
+#### 0.2.1 Preprocess the Data
+
+If you are running this system for the first time, you need to preprocess the data. 
+
+Switch to `ECoalVisBackend\tmp_data` directory and run: 
+
+```
+$ cd tmp_data
+$ python Preprocessor.py
+$ cd ..
+```
+
+#### 0.2.2 Start the Backend
+
+If you have run this system before and have done data preprocessing, you can go directly to this step.
+
+Switch to `ECoalVisBackend` directory and run: 
+
+```
+$ python server_main.py
+```
+
+#### 0.2.3 Start the Frontend
+
+To run the frontend code, you can use **npm** or **yarn**. 
+
+* If you are running this system for the first time, you need to install the dependencies first: 
+
+  ##### npm
+
+  ```
+  $ npm istall
+  ```
+
+  ##### yarn
+
+  ```
+  $ yarn
+  ```
+
+* If you have all dependencies ready, run: 
+
+  ##### npm
+
+  ```
+  $ npm start
+  ```
+
+  ##### yarn
+
+  ```
+  $ yarn start
+  ```
+
+### 0.3 How to Use
+
+We provide simple example data in the code. This data only contains two sensors, fly ash carbon content and efficiency. The carbon content of fly ash is generally negatively correlated with efficiency.
+
+We will show the usage flow of forward analysis and backward analysis respectively. 
+
+#### 0.3.1 Forward Queries
+
+In the forward analysis, users want to find the impact of certain control strategies. 
+
+Edit the filter view to specify the control strategy. In this example, we specify the fly ash carbon content decrease and the efficiency increase like this: 
+
+<img src="./public/filter view input panel.png" alt="filter view input panel" style="zoom:67%;" />
+
+Then, the ranking panel will show the results: 
+
+<img src="./public/filter view ranking panel 1.png" alt="filter view ranking panel 1" style="zoom:67%;" />
+
+Group mode: 
+
+<img src="./public/filter view ranking panel 2.png" alt="filter view ranking panel 2" style="zoom:67%;" />
+
+Users can choose a result to analyze. Here we select the first one, and you can see the corresponding line chart on the top. Click the OK button. 
+
+<img src="./public/filter view select.png" alt="filter view select" style="zoom: 50%;" />
+
+After that, the graph view will show the highlighted sensors. Users can click it to see the link. 
+
+Context mode: 
+
+<img src="./public/graph view context mode.png" alt="graph view context mode" style="zoom: 50%;" />
+
+Relationship mode:
+
+<img src="./public/graph view relationship mode.png" alt="graph view relationship mode" style="zoom:50%;" />
+
+The strategy view will show the node-link diagram and time series data of sensors: 
+
+<img src="./public/strategy view 1.png" alt="strategy view 1" style="zoom: 50%;" />
+
+Users can also search and select the sensors in detail view to see the time series data. 
+
+<img src="./public/detail view 1.png" alt="detail view 1" style="zoom:50%;" />
+
+#### 0.3.2 Backward Queries
+
+In the backward analysis, users need to identify anomalies of important sensors. 
+
+Brush the line chart on the top to choose an anomaly interval. Here we brush the first highlighted interval. 
+
+<img src="./public/brush line chart.png" alt="brush line chart" style="zoom:50%;" />
+
+Then the graph view and strategy view will show the result. The after operations and interactions are the same with forward queries. 
+
+<img src="./public/graph view.png" alt="graph view" style="zoom: 50%;" />
+
+<img src="./public/strategy view 2.png" alt="strategy view 2" style="zoom:50%;" />
+
+<img src="./public/detail view 2.png" alt="detail view 2" style="zoom:50%;" />
+
+
+
 ## 1 Data Configuration
 
 You need to prepare three .csv data files and put them into the data folder. 
